@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Workflows
+{% endblock %}
+
+{% block contents %}
+<a href="/file_upload/new/">New</a>
+
+{% if workflow_list %}
+  <table class="table table-striped">
+  {% for workflow in workflow_list %}
+      <tr><td><a href="/file_upload/{{ workflow.id }}/">{{ workflow.id }}</a></td><td>{{ workflow.owner }}</td></tr>
+  {% endfor %}
+  </table>
+{% else %}
+  <p>No workflow is available.</p>
+{% endif %}
+
+{% endblock %}
+

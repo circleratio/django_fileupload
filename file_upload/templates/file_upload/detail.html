@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load file_upload_extra %}
+
+{% block title %}
+Approve Details
+{% endblock %}
+
+{% block contents %}
+{% if workflow %}
+  <table>
+    <tr><td>登録者</td><td>{{ workflow.owner }}</td></tr>
+    <tr><td>ファイル</td><td>{% autoescape off %}{{ workflow.files|file_format }}{% endautoescape %}</td></tr>
+  </table>
+{% else %}
+  <p>No upload file is available.</p>
+{% endif %}
+{% endblock %}
+
